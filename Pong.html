@@ -1,1 +1,18 @@
-
+<!DOCTYPE html>
+<head>
+  <style>
+    canvas{
+      border: 1px gray;
+      background-color: black
+    }
+  </style>
+</head>
+<body onload= "startgame()">
+<script>
+  var gamepiece;
+  var paddles= [];
+  var score;
+  function startgame(){
+    gamepiece= new component(10, 10, "white", auto, auto)
+    paddles[0]= new component(15, 45, "white", 30, auto)
+  }
