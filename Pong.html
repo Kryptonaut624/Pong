@@ -2,10 +2,10 @@
 <html>
 <head>
   <style>
-    canvas{
-      border: 1px white;
-      background-color: black;
-    }
+  //  canvas{
+  //    border: 1px white;
+  //    background-color: black;
+  //  }
   </style>
 </head>
 <body onload= "startgame()">
@@ -15,6 +15,7 @@
     start: function(){
       this.canvas.width= 480;
       this.canvas.height=270;
+      this.canvas.fillStyle=black;
       this.context=this.getContext("2d");
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
     }
