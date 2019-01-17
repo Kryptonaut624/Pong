@@ -2,17 +2,53 @@
 <head>
   <style>
     canvas{
-      border: 1px gray;
-      background-color: black
+      border: 1px white;
+      background-color: black;
+    }
+    gamePiece{
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body onload= "startgame()">
 <script>
-  var gamepiece;
+  var gameArea= {
+    canvas: document.createElement("canvas"),
+    start: function(){
+      this.canvas.width= 480;
+      this.canvas.height=270;
+      this.context=this.getContext("2d");
+      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    }
+  }
+  var gamePiece;
   var paddles= [];
   var score;
   function startgame(){
-    gamepiece= new component(10, 10, "white", auto, auto)
-    paddles[0]= new component(15, 45, "white", 30, auto)
+    gameArea.start()
+    gamePiece= new componentC(10, 10, "white", auto, auto)
+    paddles[0]= new componentR(15, 45, "white", 30, auto)
+    paddles[1]= new componentR(15, 45, "white", 120, auto)
+  }
+  function componentR(width, height, color, x, y){
+    this.width=width
+    this.height=height
+    this.color=color
+    this.x=x
+    this.y=y
+    ctx.context=gameArea
+    ctx.fillStyle=color
+    ctx.fillRect(this.x, this.y, this.width, this.height)
+  }
+  function componentC(width, height, color, x, y){
+    this.width=width
+    this.height=height
+    this.color=color
+    this.x=x
+    this.y=y
+    ctx.context=gameArea
+    ctx.fillStyle=color
+    ctx.fillRect(this.x, this.y, this.width, this.height)
   }
